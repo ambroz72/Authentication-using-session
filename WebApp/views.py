@@ -53,24 +53,6 @@ def usercreate(request):
     else:
         return render(request,'signup.html')
 
-#User login functionality view
-# def login(request):
-# 	if request.method == 'POST':
-# 		username = request.POST['username']
-# 		password = request.POST['password']
-# 		user = auth.authenticate(username=username, password=password)
-# 		if user is not None:
-#             request.session["uid"] = user.id
-#             auth.login(request, user)
-# 			messages.info(request, f'Welcome {username}')
-# 			return redirect('about')
-# 		else:
-# 			messages.info(request, 'Invalid Username or Password. Try Again.')
-# 			return redirect('loginpage')
-# 	else:
-# 		#messages.info(request, 'Oops, Something went wrong.')
-# 		return redirect('loginpage')
-
 
 def login(request): 
     try:
@@ -105,10 +87,3 @@ def logout(request):
     auth.logout(request)
     return redirect('home')
 
-# def logout(request):
-#     if 'uid' in request.session:
-#         request.session.flush()
-#         return redirect('home')
-
-# def logout(request):
-#     pass
