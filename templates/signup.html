@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <style>
+    body{
+        background-color: aqua;
+    }
+</style>
+<h1 style="margin-top: 20%;">
+    Signup................
+</h1> -->
+
+<div class="nav bg-info">
+    <h1 class="text-light" style="margin-left: 40%;">Registration</h1>
+</div>
+<div class="container">
+    {% for message in messages %}
+<h5>
+    <div class="alert alert-danger mt-5" style="width: 50%;">
+        {{ message }}
+    </div>
+</h5>
+    {% endfor %}
+</div>
+<div class="container bg-light" style="border-radius: 10px; width:50%">
+   <form action="{% url 'usercreate' %}" method="post" class="form pt-5 pb-5" style="width: 50%; margin-left:25%">
+       {% csrf_token %}
+
+       <input type="text" name="first_name" class="form-control" placeholder="First Name"><br>
+       <input type="text" name="last_name"class="form-control" placeholder="Last Name"><br>
+       <input type="text" name="username" class="form-control" placeholder="Username"><br>
+       <input type="email" name="email" class="form-control" placeholder="Email"><br>
+       <input type="password" name="password" class="form-control" placeholder="Strong Password"><br>
+       <input type="password" name="cpassword" class="form-control" placeholder="Conform Password"><br>
+       
+       <button type="submit" class="btn btn-outline-info" style="margin-left: 40%;">Submit</button>
+       <br>
+       <p class='text-muted'>Already a member. <a href="#">Login</a></p>
+   </form>
+</div>
+{% endblock %}

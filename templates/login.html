@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <h1 style="margin-top: 20%;">
+    login********************
+</h1> -->
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        {% for message in messages %}
+        <h5>
+            <div class="alert alert-danger mt-5">
+                {{ message }}
+            </div>
+        </h5>
+            {% endfor %}
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8 mt-5'>
+        <div class="card p-3">
+            <form method='post' class='post-form' action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <h3 class="text-primary">Log In</h3>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Username</label>
+                        <input type="text" name="username" class='form-control'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Password</label>
+                        <input type="password" name="password" class='form-control'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 mt-3">
+                        <button type='submit' class='btn btn-outline-primary rounded-pill w-100'>LogIn</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class='col-md-2'></div>
+</div>
+{% endblock %}
